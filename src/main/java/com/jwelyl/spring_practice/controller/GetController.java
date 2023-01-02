@@ -1,5 +1,6 @@
 package com.jwelyl.spring_practice.controller;
 
+import com.jwelyl.spring_practice.dto.MemberDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -49,7 +50,11 @@ public class GetController {
         return sb.toString();
     }
 
-
+    //  http://localhost:8080/api/v1/get-api/request3?name=value1&email=value2&organization=value3
+    @GetMapping(value="/request3")
+    public String getRequestParam3(MemberDto memberDto) {
+        return memberDto.toString();
+    }
 
 
 }

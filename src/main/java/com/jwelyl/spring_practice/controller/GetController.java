@@ -2,6 +2,8 @@ package com.jwelyl.spring_practice.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class GetController {
@@ -34,6 +36,20 @@ public class GetController {
     public String getRequestParam1(@RequestParam String name, @RequestParam String email, @RequestParam String organization) {
         return name + " " + email + " " + organization;
     }
+
+    //  http://localhost:8080/api/v1/get-api/request2?key1=value1&key2=value2
+    @GetMapping(value = "/request2")
+    public String getRequestParam2(@RequestParam Map<String, String> param) {
+        StringBuilder sb = new StringBuilder();
+
+        param.entrySet().forEach(map -> {
+            sb.append(map.getKey() + " : " + map.getValue() + "\n");
+        });
+
+        return sb.toString();
+    }
+
+
 
 
 }

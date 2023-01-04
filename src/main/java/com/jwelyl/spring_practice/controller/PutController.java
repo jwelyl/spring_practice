@@ -28,4 +28,10 @@ public class PutController {
     public String postMemberDto1(@RequestBody MemberDto memberDto) {
         return memberDto.toString();
     }
+
+    //  http://localhost:8080/api/v1/put-api/member2
+    @PutMapping(value = "/member2")
+    public MemberDto postMemberDto2(@RequestBody MemberDto memberDto) {
+        return memberDto;
+    }
 }

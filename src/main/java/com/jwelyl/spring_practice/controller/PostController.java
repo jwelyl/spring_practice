@@ -1,5 +1,6 @@
 package com.jwelyl.spring_practice.controller;
 
+import com.jwelyl.spring_practice.dto.MemberDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -23,5 +24,11 @@ public class PostController {
         });
 
         return sb.toString();
+    }
+
+    //  http://localhost:8080/api/v1/post-api/member2
+    @PostMapping(value = "/member2")
+    public String postMemberDto(@RequestBody MemberDto memberDto) {
+        return memberDto.toString();
     }
 }

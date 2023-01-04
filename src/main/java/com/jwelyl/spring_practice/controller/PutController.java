@@ -1,5 +1,6 @@
 package com.jwelyl.spring_practice.controller;
 
+import com.jwelyl.spring_practice.dto.MemberDto;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,5 +21,11 @@ public class PutController {
         });
 
         return sb.toString();
+    }
+
+    //  http://localhost:8080/api/v1/put-api/member1
+    @PutMapping(value = "/member1")
+    public String postMemberDto1(@RequestBody MemberDto memberDto) {
+        return memberDto.toString();
     }
 }

@@ -31,6 +31,7 @@ public class GetController {
     //  http://localhost:8080/api/v1/get-api/variable1/{String 값}
     @GetMapping(value = "/variable1/{variable}")
     public String getVariable1(@PathVariable String variable) {
+        LOGGER.info("@PathVariable을 통해 들어온 값 : {}", variable);
         return variable;
     }
 

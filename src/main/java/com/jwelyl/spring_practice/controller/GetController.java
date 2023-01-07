@@ -3,6 +3,8 @@ package com.jwelyl.spring_practice.controller;
 import com.jwelyl.spring_practice.dto.MemberDto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -10,15 +12,19 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class GetController {
+    private final Logger LOGGER = LoggerFactory.getLogger(GetController.class);
+
     //  http://localhost:8080/api/v1/get-api/hello
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String getHello() {
+        LOGGER.info("getHello 메서드가 호출되었습니다.");
         return "Hello World";
     }
 
     //  http://localhost:8080/api/v1/get-api/name
     @GetMapping(value = "/name")
     public String getName() {
+        LOGGER.info("getName 메서드가 호출되었습니다.");
         return "Flature";
     }
 
